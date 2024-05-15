@@ -12,7 +12,8 @@ const Tab = ({ clickedButton, language }) => {
     "Login",
     "Home",
     "Dashboard",
-    "Survey"
+    "Survey",
+    "Change language"
   ];
 
   const thaiButtons = [
@@ -25,7 +26,8 @@ const Tab = ({ clickedButton, language }) => {
     "เข้าสู่ระบบ",
     "หน้าหลัก",
     "แดชบอร์ด",
-    "แบบสำรวจ"
+    "แบบสำรวจ",
+    "เปลี่ยนภาษา"
   ];
 
   const getButtonText = (button) => {

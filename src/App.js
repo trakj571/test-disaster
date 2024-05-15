@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "./components/Header/Header";
 import Tab from "./components/Tab/Tab";
 import "./App.css";
+import { handleButtonClick, handleLanguageChange, handleLogin } from "./handlers";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -11,32 +12,14 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userId, setUserId] = useState(null);
 
-  const handleButtonClick = (button) => {
-    if (button === "เข้าสู่ระบบ" || button === "Login") {
-      handleLogin();
-    } else {
-      setClickedButton(button);
-    }
-  };
-
-  const handleLanguageChange = () => {
-    const newLanguage = language === "TH" ? "EN" : "TH";
-    setLanguage(newLanguage);
-  };
-
-  const handleLogin = () => {
-    const fakeUserId = "12345"; // กำหนดค่า fakeUserId ที่นี่
-    setUserId(fakeUserId);
-    setIsLoggedIn(true);
-    setClickedButton(language === "TH" ? "เข้าสู่ระบบ" : "Login");
-  };
+  const handleLoginWithArgs = () => handleLogin(setUserId, setIsLoggedIn, setClickedButton, language);
 
   return (
     <div className={`theme-${theme} font-size-${fontSize}`}>
       <Header
-        onButtonClick={handleButtonClick}
+        onButtonClick={(button) => handleButtonClick(button, setClickedButton, handleLoginWithArgs, language)}
         language={language}
-        onLanguageChange={handleLanguageChange}
+        onLanguageChange={() => handleLanguageChange(language, setLanguage, setClickedButton)}
         isLoggedIn={isLoggedIn}
         userId={userId} // ส่ง userId ไปยัง Header
       />

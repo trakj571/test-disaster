@@ -1,3 +1,4 @@
+/* src/components/Header/Header.css */
 .header {
   display: flex;
   align-items: center;
@@ -15,6 +16,13 @@
 .button-group {
   display: flex;
   gap: 10px; /* ช่องว่างระหว่างปุ่ม */
+}
+
+.left-buttons {
+  margin-right: auto; /* ให้ปุ่มอยู่ทางซ้าย */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .right-buttons {
